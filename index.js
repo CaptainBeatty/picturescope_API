@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-const functions = require('firebase-functions');
+
 var app = require('./app')
 var http = require('http')
 
