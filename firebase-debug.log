@@ -1,0 +1,107 @@
+[debug] [2024-05-08T18:17:54.856Z] ----------------------------------------------------------------------
+[debug] [2024-05-08T18:17:54.864Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\julie\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2024-05-08T18:17:54.865Z] CLI Version:   13.8.0
+[debug] [2024-05-08T18:17:54.865Z] Platform:      win32
+[debug] [2024-05-08T18:17:54.866Z] Node Version:  v20.10.0
+[debug] [2024-05-08T18:17:54.866Z] Time:          Wed May 08 2024 20:17:54 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2024-05-08T18:17:54.866Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-08T18:17:55.079Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-08T18:17:55.080Z] > authorizing via signed-in user (juliengrange.dev@gmail.com)
+[debug] [2024-05-08T18:17:55.081Z] [iam] checking project picturescope-api for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-05-08T18:17:55.085Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/picturescope-api:testIamPermissions [none]
+[debug] [2024-05-08T18:17:55.086Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/picturescope-api:testIamPermissions x-goog-quota-user=projects/picturescope-api
+[debug] [2024-05-08T18:17:55.087Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/picturescope-api:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-05-08T18:17:55.863Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/picturescope-api:testIamPermissions 200
+[debug] [2024-05-08T18:17:55.864Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/picturescope-api:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-05-08T18:17:55.865Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/picturescope-api/serviceAccounts/picturescope-api@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-05-08T18:17:55.865Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/picturescope-api/serviceAccounts/picturescope-api@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-05-08T18:17:56.525Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/picturescope-api/serviceAccounts/picturescope-api@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-05-08T18:17:56.525Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/picturescope-api/serviceAccounts/picturescope-api@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'picturescope-api'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-05-08T18:17:56.536Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api [none]
+[debug] [2024-05-08T18:17:56.824Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api 200
+[debug] [2024-05-08T18:17:56.825Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api {"projectId":"picturescope-api","projectNumber":"437267680366","displayName":"picturescope-api","name":"projects/picturescope-api","resources":{"hostingSite":"picturescope-api"},"state":"ACTIVE","etag":"1_9d7c3f97-a2b6-4139-b900-15a495f5bfee"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-05-08T18:17:56.830Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-05-08T18:17:56.830Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/picturescope-api
+[debug] [2024-05-08T18:17:56.831Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-05-08T18:17:56.832Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/picturescope-api
+[debug] [2024-05-08T18:17:56.833Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudbuild.googleapis.com [none]
+[debug] [2024-05-08T18:17:56.833Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudbuild.googleapis.com x-goog-quota-user=projects/picturescope-api
+[debug] [2024-05-08T18:17:56.835Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/artifactregistry.googleapis.com [none]
+[debug] [2024-05-08T18:17:56.836Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/artifactregistry.googleapis.com x-goog-quota-user=projects/picturescope-api
+[debug] [2024-05-08T18:17:57.731Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudbuild.googleapis.com 200
+[debug] [2024-05-08T18:17:57.732Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-05-08T18:17:57.734Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/artifactregistry.googleapis.com 200
+[debug] [2024-05-08T18:17:57.735Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-05-08T18:17:57.741Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudfunctions.googleapis.com 200
+[debug] [2024-05-08T18:17:57.741Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-05-08T18:17:57.759Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/runtimeconfig.googleapis.com 200
+[debug] [2024-05-08T18:17:57.759Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/picturescope-api/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-05-08T18:17:57.759Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api/adminSdkConfig [none]
+[debug] [2024-05-08T18:17:57.938Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api/adminSdkConfig 200
+[debug] [2024-05-08T18:17:57.938Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/picturescope-api/adminSdkConfig {"projectId":"picturescope-api","storageBucket":"picturescope-api.appspot.com"}
+[debug] [2024-05-08T18:17:57.940Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/picturescope-api/configs [none]
+[debug] [2024-05-08T18:17:58.394Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/picturescope-api/configs 200
+[debug] [2024-05-08T18:17:58.394Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/picturescope-api/configs {}
+[debug] [2024-05-08T18:17:58.397Z] Validating nodejs source
+[debug] [2024-05-08T18:18:02.083Z] > [functions] package.json contents: {
+  "name": "picturescope-api",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "devstart": "nodemon ./index.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "firebase": "^10.11.1",
+    "firebase-functions": "^5.0.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
+[debug] [2024-05-08T18:18:02.084Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-05-08T18:18:02.088Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-08T18:18:02.115Z] Found firebase-functions binary at 'C:\Users\Public\Documents\Bascule\Mes_codes\Portfolio\picturescope_API\node_modules\.bin\firebase-functions'
+[info] Serving at port 8170
+
+[error] Port 8170 is already in use
+
+[debug] [2024-05-08T18:18:04.613Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8170/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8170/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-05-08T18:18:04.782Z] FetchError: request to http://127.0.0.1:8170/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\julie\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:514:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:495:9)
+    at Socket.emit (node:events:514:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.

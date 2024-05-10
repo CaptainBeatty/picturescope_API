@@ -1,16 +1,20 @@
 {
-  "name": "oc-react2-api",
+  "name": "picturescope-api",
   "version": "0.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "devstart": "nodemon ./index.js"
+    "devstart": "nodemon ./index.js",
+    "deploy": "firebase deploy --only functions:api"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "firebase": "^10.11.1",
+    "firebase-functions": "^5.0.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
@@ -18,5 +22,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "18"
   }
 }
