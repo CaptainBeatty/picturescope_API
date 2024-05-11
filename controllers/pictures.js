@@ -14,7 +14,7 @@ exports.getAllPicture= function (req, res, next) {
 
 
 exports.getOnePicture = function (req, res, next) {
-    Picture.findOne({
+    picturesData.findOne({
             _id: req.params.id
         })
         .then(function (picture) {
