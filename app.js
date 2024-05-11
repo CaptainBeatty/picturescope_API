@@ -4,11 +4,18 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const indexRouter = require('./routes/index')
-const app = express()
+const mongoose = require('mongoose');
 
 
+
+mongoose.connect('mongodb+srv://juliengrangedev:rI9L3MuzqY1XG4pV@cluster1.cj7fzyr.mongodb.net//test?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const cors = require('cors')
+const app = express()
 
 app.use(cors())
 // view engine setup
