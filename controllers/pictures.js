@@ -1,7 +1,7 @@
-const picturesData = require('../models/pictures')
+const pictures = require('../models/pictures')
 
 exports.getAllPicture= function (req, res, next) {
-	picturesData.find()
+	pictures.find()
 	.then(function (pictures) {
 		res.status(200).json(pictures);
 	})
@@ -14,7 +14,7 @@ exports.getAllPicture= function (req, res, next) {
 
 
 exports.getOnePicture = function (req, res, next) {
-    picturesData.findOne({
+    pictures.findOne({
             _id: req.params.id
         })
         .then(function (picture) {
