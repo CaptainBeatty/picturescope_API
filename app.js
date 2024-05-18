@@ -6,8 +6,6 @@ const logger = require('morgan')
 const indexRouter = require('./routes/index')
 const app = express()
 
-
-
 const cors = require('cors')
 
 app.use(cors())

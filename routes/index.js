@@ -4,7 +4,7 @@ const router = express.Router()
 // const getPicture = require('../controllers/picture')
 const mongoose = require('mongoose');
 const Picture = require('../models/pictures');
-const bodyParser = require('body-parser');
+require("dotenv").config();
 
 
 router.use((req, res, next) => {
@@ -13,7 +13,7 @@ router.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 	next();
   });
-  mongoose.connect('mongodb+srv://juliengrangedev:BDftSwi5ye58vk0a@cluster1.cj7fzyr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1',
+  mongoose.connect(process.env.BDD_URL,
   { useNewUrlParser: true,
 	useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
