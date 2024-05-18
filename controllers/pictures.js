@@ -1,8 +1,7 @@
 const picturesData = require('../models/pictures')
 
 function getPictures() {
-	return picturesData.map(({ id, url, title, description, device }) => ({
-		id,
+	return picturesData.map(({ url,title, description, device }) => ({
 		url, 
 		title, 
 		description,
