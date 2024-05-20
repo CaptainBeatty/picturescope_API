@@ -2,9 +2,25 @@ const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const router = express.Router()
 const logger = require('morgan')
-const indexRouter = require('./routes/index')
+const picturesRoute = require('./routes/pictures.js')
 const app = express()
+const mongoose = require('mongoose');
+
+require("dotenv").config();
+
+router.use((req, res, next) => {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+	next();
+  });
+  mongoose.connect(process.env.BDD_URL,
+  { useNewUrlParser: true,
+	useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const cors = require('cors')
 
@@ -23,7 +39,7 @@ app.use(function(req, res, next){
 	setTimeout(next, Math.floor( ( Math.random() * 2000 ) + 100 ) )
 });
 
-app.use('/', indexRouter)
+app.use('/pictures', picturesRoute)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
