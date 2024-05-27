@@ -1,11 +1,9 @@
 const Picture = require('../models/pictures');
 
 exports.createPicture = (req, res, next) => {
+  delete req.body._id;
   const pictures = new Picture({
-    url: req.body.url,
-    title: req.body.title,
-    description: req.body.description,
-    userId: req.body.userId
+	...req.body
   });
   pictures.save().then(
     () => {
@@ -39,14 +37,8 @@ exports.getOnePicture = (req, res, next) => {
 };
 
 exports.modifyPicture = (req, res, next) => {
-  const pictures = new Picture({
-	_id: req.params.id,
-	url: req.body.url,
-    title: req.body.title,
-    description: req.body.description,
-    userId: req.body.userId
-  });
-  Picture.updateOne({_id: req.params.id}, pictures).then(
+  Picture.updateOne({_id: req.params.id}, { ...req.body, _id: req.params.id })
+  .then(
     () => {
       res.status(201).json({
         message: 'Picture updated successfully!'

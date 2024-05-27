@@ -1,12 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const picturesCtrl = require('../controllers/pictures')
-// const getPicture = require('../controllers/picture')
 
-router.get('/', picturesCtrl.getAllPicture);
-router.post('/', picturesCtrl.createPicture);
-router.get('/:id', picturesCtrl.getOnePicture);
-router.put('/:id', picturesCtrl.modifyPicture);  
-router.delete('/:id', picturesCtrl.deletePicture);
+const auth = require('../middleware/auth');
+
+const picturesCtrl = require('../controllers/pictures')
+
+
+router.get('/', auth, picturesCtrl.getAllPicture);
+router.post('/', auth, picturesCtrl.createPicture);
+router.get('/:id', auth, picturesCtrl.getOnePicture);
+router.put('/:id', auth, picturesCtrl.modifyPicture);  
+router.delete('/:id', auth, picturesCtrl.deletePicture);
 
 module.exports = router
