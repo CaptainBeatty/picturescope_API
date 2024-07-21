@@ -1,24 +1,38 @@
 const Picture = require('../models/pictures');
 
 exports.createPicture = (req, res, next) => {
-  delete req.body._id;
+  const pictureObject = JSON.parse(req.body.pictures);
+  delete pictureObject._id;
+  delete pictureObject._userId;
   const pictures = new Picture({
-	...req.body
+	...pictureObject,
+    userId: req.auth.userId,
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   });
-  pictures.save().then(
-    () => {
-      res.status(201).json({
-        message: 'Objet crée!'
-      });
-    }
-  ).catch(
-    (error) => {
-      res.status(400).json({
-        error: error
-      });
-    }
-  );
+  pictures.save()
+  .then(() => { res.status(201).json({message: 'Objet crée!'})})
+  .catch((error) => {res.status(400).json({error})})
 };
+
+// exports.createPicture = (req, res, next) => {
+//   delete req.body._id;
+//   const pictures = new Picture({
+// 	...req.body
+//   });
+//   pictures.save().then(
+//     () => {
+//       res.status(201).json({
+//         message: 'Objet crée!'
+//       });
+//     }
+//   ).catch(
+//     (error) => {
+//       res.status(400).json({
+//         error: error
+//       });
+//     }
+//   );
+// };
 
 exports.getOnePicture = (req, res, next) => {
 	
