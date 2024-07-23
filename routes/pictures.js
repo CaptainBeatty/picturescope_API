@@ -5,9 +5,9 @@ const multer = require('../middleware/multer-config')
 
 const picturesCtrl = require('../controllers/pictures')
 
-// routes
+
 router.get('/', auth, picturesCtrl.getAllPicture);
-router.post('/', multer, picturesCtrl.createPicture);
+router.post('/', auth, multer, picturesCtrl.createPicture);
 router.get('/:id', auth, picturesCtrl.getOnePicture);
 router.put('/:id', auth, picturesCtrl.modifyPicture);  
 router.delete('/:id', auth, picturesCtrl.deletePicture);
