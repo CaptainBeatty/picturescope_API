@@ -7,7 +7,7 @@ const picturesCtrl = require('../controllers/pictures')
 
 
 router.get('/', auth, picturesCtrl.getAllPicture);
-router.post('/', auth, multer, picturesCtrl.createPicture);
+router.post('/', multer, picturesCtrl.createPicture);
 router.get('/:id', auth, picturesCtrl.getOnePicture);
 router.put('/:id', auth, picturesCtrl.modifyPicture);  
 router.delete('/:id', auth, picturesCtrl.deletePicture);
